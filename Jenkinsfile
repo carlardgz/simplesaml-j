@@ -11,7 +11,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-	git credentialsId: 'demo_github', url: 'https://github.com/carlardgz/simplesaml-j.git', branch: 'main'	
+	git credentialsId: 'demo_github', url: 'https://github.com/carlardgz/prueba.git', branch: 'main'	
       }
     }
 
