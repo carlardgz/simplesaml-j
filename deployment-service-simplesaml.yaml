@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: simplesaml-j
+  name: prueba-j
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: simplesaml-j
+      app: prueba-j
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -15,27 +15,27 @@ spec:
   template:
     metadata:
       labels:
-        app: simplesaml-j
-        role: simplesaml-j
+        app: prueba-j
+        role: prueba-j
     spec:
       containers:
-        - name: simplesaml-j
-          image: carlarodriguezag/simplesaml-j:latest
+        - name: prueba-j
+          image: carlarodriguezag/prueba-j:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80
-              name: simplesaml-j
+              name: prueba-j
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: simplesaml-j
+  name: prueba-j
   labels:
-    app: simplesaml-j
+    app: prueba-j
 spec:
   selector:
-   app: simplesaml-j
+   app: prueba-j
   type: LoadBalancer
   ports:
    - name: http
@@ -43,4 +43,4 @@ spec:
      protocol: TCP
      targetPort: 80
   selector:
-    role: simplesaml-j
+    role: prueba-j
